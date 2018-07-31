@@ -1,0 +1,14 @@
+1.
+
+command: grep -c ">" Pine_reference_rnaseq_reduced.fa
+output: 26925
+
+2. 
+
+command: grep -c "^+$" GBS12_brds_Pi_197A2_100k_R1.fastq
+output: 100000
+
+3.
+
+command: awk 'NR%4==0' GBS12_brds_Pi_197A2_100k_R1.fastq | grep -c "#"
+output: 20638

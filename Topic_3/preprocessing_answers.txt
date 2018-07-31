@@ -1,0 +1,14 @@
+1.
+
+There are differences in length, base quality distribution, tag sequences, and number of duplicates.
+GBS requires restriction sites, thus all sequences would have the same bases at the first 5 positions.
+
+2.
+
+I would choose to quality trim both ends of the reads, as the quality score graph shows a general decrease 
+towards the right end of the read, and at the left end. Although one could use the average quality,
+it would be better to explicitly target the ends where quality is known to be lower. In the case of 
+RNA, it would also be beneficial to filter out low complexity regions (DUST/entropy threshold),
+as this would remove polyA tails.
+
+Minimum length can also be used depending on how stringent the data cleaning should be.
