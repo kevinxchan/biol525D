@@ -1,0 +1,11 @@
+1. 
+
+I'd use an R script if I needed to do statistical analysis, make plots, or require complex objects
+for other analyses.
+
+2.
+
+Piping keeps the data inputs and outputs in-memory, as opposed to writing to a file which requires
+reading from disk. Reading from disk is is more "expensive" (takes longer time), as the computer
+needs to go to the disk, read that information, and then return it. This all must happen before
+the next program is run in the pipeline, which slows it down compared to keeping things in memory.
