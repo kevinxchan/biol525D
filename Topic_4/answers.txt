@@ -1,0 +1,41 @@
+#############
+# QUESTIONS #
+#############
+
+1.
+
+The reads aren't in any particular order, as no sorting has been done yet.
+
+2.
+
+This is the extended CIGAR string. In our data, the majority have "100M", or 100 matches. The string
+"1S93M6S" would mean the first base is soft-clipped, followed by 93 matches, then the last six
+bases are soft clipped.
+
+3.
+
+i. the read could be mapped to many different places because it is part of a repetitive region
+ii. the read is of low quality
+iii. 
+
+####################
+# DAILY ASSIGNMENT #
+####################
+
+1. 
+
+Generally yes, unless the mapping quality is poor or if the reads map erroneously. If the reads
+map to repetitive regions, or there are many repeats in the genome, then the higher mapping rate
+may not reflect an accurate alignment.
+
+2. 
+
+There are multiple settings which can be used to changed the penalties for gaps, extensions, mismatches,
+clipping, and unpaired reads (-B, -O, -E, -L, -U). -c INT will also discard a MEM if it occurs more than
+INT time in the genome. 
+
+3. 
+
+The speed of the aligner, as this could determine which aligner is best with the size of the data.
+The percentage of mapped reads, as this could determine which aligner to use depending on how divergent
+the reference genome is.
