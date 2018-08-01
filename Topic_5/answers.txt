@@ -1,0 +1,22 @@
+1.
+
+Number of reads: 1,294,104 
+Read size: 101 bp
+Number of bp from reads: 1294104 * 101 = 130704504
+Number of bp in genome: 2,860,307
+Expected coverage: 130704504 / 2860307 = 45.6959704
+
+2.
+
+Formula: Ck = C * (L - k + 1) / L
+Read length (L): 101 bp
+k-mer length (k): 21 
+k-mer coverage: 45.6959704 * (101 - 21 + 1) / 101 = 36.6472634
+
+3.
+
+We could assess L50, number of contigs or scaffolds, cumulative size of contigs or scaffolds, and predicted genes.
+
+4.
+
+Consider using different kmer sizes, -min_contig_length set to 1000, -ins_length to filter out reads that are too short, or using the -exp_cov set to 36.6472634, as this will greatly impact the assembly.
