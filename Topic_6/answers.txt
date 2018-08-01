@@ -1,0 +1,29 @@
+##########
+# PART 1 #
+##########
+
+1.
+
+PmdT_147_rsem: 11.00
+PmdT_191_rsem: 8.00
+PmwT_171_rsem: 9.00
+
+2.
+
+?
+
+##########
+# PART 2 #
+##########
+
+1.
+
+9731. If the p-value is increased, then more genes are differentially expressed. If it is decreased, then fewer are differentially expressed. When genes with low or no expression across all samples are included, this inflates the number.
+
+2. 
+
+8287.
+
+3.
+
+?

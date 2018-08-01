@@ -6,7 +6,7 @@ biocLite("edgeR")
 getwd()
 
 #paste it in here (i.e. replace my path with yours):
-setwd ("/Users/kayhodgins/Dropbox/Documents/bioinformatics_workshop/bioinformatics_examples/data_for_exercises/rnaseq")
+setwd ("/Users/kevinxchan/Documents/UBC/YEAR3/biol525D/Topic_6/")
 
 #load the libraries you will need 
 library ("edgeR")
@@ -37,7 +37,7 @@ col_treat [col_treat == "C"] <- "blue"
 col_treat [col_treat == "H"] <- "red"
 
 #plot the MDS graph
-plotMDS (list2, col = col_treat)
+plotMDS (list1, col = col_treat)
 
 #Set the model to use. This one includes the intercept, but other models can be specified that omit the intercept or that have more complex designs. See EdgeR manual for details.
 design <- model.matrix (~treat)
