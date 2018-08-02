@@ -1,0 +1,10 @@
+1. 
+
+It will have a value of 0. 
+
+2.
+
+It will change the distribution of points, which will be reflected in the graph.
+
+3.
+
