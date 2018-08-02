@@ -72,9 +72,9 @@ do
 echo -e "$i\t$gvcf/$i.ngm.dedup.g.vcf"
 done > $home/$project.sample_map
 
-#Break down the chained grep and sed commands above and figure out what they do. Try removing one part and see what you.
+#Break down the piped grep and sed commands above and figure out what they do. Try removing one part and see what you.
 
-#Next we call GenomicsDBImport to actually create the database.
+#Next we call GenomicsDBImport to actually create the database. This will take about 10 minutes.
 
 $gatk --java-options "-Xmx4g -Xms4g" \
        GenomicsDBImport \
@@ -82,9 +82,9 @@ $gatk --java-options "-Xmx4g -Xms4g" \
        --batch-size 50 \
        -L Chr1 \
        --sample-name-map $home/$project.sample_map \
-       --reader-threads 2
+       --reader-threads 1
 
-#With the genomicsDB created, we're finally ready to actually call variants and output a vcf
+#With the genomicsDB created, we're finally ready to actually call variants and output a vcf. This will take around 6 minutes.
 
 $gatk --java-options "-Xmx4g" GenotypeGVCFs \
    -R $ref/reference.fa \
@@ -93,7 +93,6 @@ $gatk --java-options "-Xmx4g" GenotypeGVCFs \
 
 
 
-####RUN UP TO THIS STEP AT THE START OF THE CLASS
 
 #Lets take a look at the vcf file
 less -S $home/$project.vcf.gz
@@ -127,8 +126,9 @@ cat $home/$project.snps.tab |sed 's/.GT   /  /g' | sed 's/.GT$//g' | sed 's|/||g
 
 ```
 ### Coding challenge
+* Use command line tools to extract a list of all the samples in your VCF file, from the vcf file itself. They should be one name per line.
 * Take the original vcf file produced and create a vcf of only high quality indels for samples 1-25,50-75. Make sure that each indel is actually variable in those samples.
-* It can be better to use genotype likelihoods instead of called genotypes when you have low depth. One tool for doing this is [ngsTools](https://github.com/mfumagalli/ngsTools#ngscovar). Install this program and run a PCA on your samples.
+* Use GATK to filter your vcf file and select for sites with alternate allele frequencies > 0.01, including multi-allelic sites. 
 
 ### Daily assignments
 1. Another program that is useful for filtering and formatting vcf files is [vcftools](https://vcftools.github.io/index.html). It is installed on the server. It can also do basic pop gen stats. Use it to calculate Fst between samples 1-50 and 51-100.
