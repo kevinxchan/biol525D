@@ -1,0 +1,7 @@
+1.
+
+cat $home/$project.snps.formatted.tab | head -1 | cut -d$'\t' -f3- | sed 's/\t/\n/g' > $home/sample_names_from_vcf.txt
+
+2.
+
+zcat $home/$project.vcf.gz | tail -n +41 | cut -d $'\t' -f 10-34,59-84 > hq_indels_1to25_50to75.txt
