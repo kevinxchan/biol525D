@@ -1,4 +1,4 @@
-#! usr/bin/bash
+#!usr/bin/env bash
 
 PERL=$(which perl)
 R=$(which R)
