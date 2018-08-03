@@ -45,13 +45,14 @@ ggplot(data=tab,aes(EV1,EV2)) + geom_jitter(width=0.01,height=0.01)
 #Next lets color code by population and add axis labels
 ggplot(data=tab,aes(EV1,EV2)) + geom_jitter(aes(color=as.factor(population)),width=0.01,height=0.01) + ylab("Principal component 2") + xlab("Principal component 1")
 #We can make that look nicer
-ggplot(data=tab,aes(EV1,EV2)) + geom_jitter(aes(color=as.factor(lat)),
+plot <- ggplot(data=tab,aes(EV1,EV2)) + geom_jitter(aes(color=as.factor(lat)),
                                             width=0.01,height=0.01) + ylab("Principal component 2") + xlab("Principal component 1") +
   theme_classic() + scale_color_discrete(name="Population") +
-  theme(panel.border = element_rect(fill = NA, colour = "grey50")) 
-
-
-
+  theme(panel.border = element_rect(fill = NA, colour = "grey50")) +
+  ggtitle("PCA plot") + theme(plot.title = element_text(hjust = 0.5))
+pdf("pca.pdf")
+plot(plot)
+dev.off()
 
 
 
